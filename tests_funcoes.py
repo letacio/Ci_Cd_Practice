@@ -16,3 +16,5 @@ if __name__ == "__main__":
     print("Executando testes")
     test_funcao_soma()
     print("Testes finalizados")
+    
+    #ops
