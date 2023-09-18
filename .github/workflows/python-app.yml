@@ -29,11 +29,11 @@ jobs:
         cache: "pip"
         cache-dependency-path: requirements.txt
 
-   # - uses: actions/cache@v3
-   #   id: cache
-   #   with:
-   #     path: python_install.lock
-    #    key: test1
+    - uses: actions/cache@v3
+      id: cache
+      with:
+        path: requirements.txt
+        key: test1
       
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
