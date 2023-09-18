@@ -27,7 +27,7 @@ jobs:
       with:
         python-version: "3.11.5"
         cache: "pip"
-        cache-dependency-path: Python_cache
+        cache-dependency-path: requirements.txt
 
    # - uses: actions/cache@v3
    #   id: cache
