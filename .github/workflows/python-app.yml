@@ -26,23 +26,21 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up Python 3.11.5
+      id: Setup_python
       uses: actions/setup-python@v3
       with:
         python-version: "3.11.5"
-        cache: "pip"
-        cache-dependency-path: requirements.txt
 
     - uses: actions/cache@v3
       id: cache
       with:
-        path: requirements.txt
-        key: test1
+        path: ${{env.pythonlocation}}  #pega todo o ambiente do python, nao só a pasta de dependencias. dependendo pode querer mudar.
+        key: ${{steps.Setup_python.python-version}} - ${{ hashFiles('requirements.txt') }} - Job
       
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Lint with flake8
