@@ -15,6 +15,6 @@ def test_funcao_soma():
 if __name__ == "__main__":
     print("Executando testes")
     test_funcao_soma()
-    print("Testes finalizados ")
+    print("Testes finalizados 123 ")
     
     #ops
